@@ -1,0 +1,15 @@
+{
+  "name": "typeflow",
+  "version": "1.0.0",
+  "description": "A fast, minimal typing speed test with live WPM, accuracy, consistency and history.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve@14.2.4 ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

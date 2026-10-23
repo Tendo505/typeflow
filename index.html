@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TypeFlow — Typing Speed Test</title>
+  <meta name="description" content="A fast, minimal typing speed test with live WPM, accuracy, consistency and progress history. No dependencies, runs offline.">
+  <meta name="theme-color" content="#d9572b">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d9572b'/><text x='16' y='23' font-family='monospace' font-size='20' font-weight='bold' fill='white' text-anchor='middle'>t</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>type<span>flow</span></h1>
+    <div class="toolbar" role="toolbar" aria-label="Test settings">
+      <div class="group">
+        <button data-toggle="punctuation" aria-pressed="false">@ punctuation</button>
+        <button data-toggle="numbers" aria-pressed="false"># numbers</button>
+      </div>
+      <div class="group" aria-label="Test length">
+        <button data-duration="15" aria-pressed="false">15</button>
+        <button data-duration="30" aria-pressed="false">30</button>
+        <button data-duration="60" aria-pressed="false">60</button>
+        <button data-duration="120" aria-pressed="false">120</button>
+      </div>
+      <button id="theme-toggle" class="icon" aria-label="Toggle dark mode" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="test-view">
+      <div class="live">
+        <span id="timer">30</span>
+        <span id="live-wpm"></span>
+      </div>
+      <div id="words" class="words" tabindex="0" role="textbox" aria-label="Typing area. Start typing the words shown."></div>
+      <p class="touch-note">typeflow needs a physical keyboard. Open it on a desktop or connect one to try a test.</p>
+      <p class="hint"><kbd>esc</kbd> restart · <kbd>ctrl</kbd>+<kbd>backspace</kbd> delete word</p>
+    </section>
+
+    <section id="result-view" hidden aria-live="polite">
+      <div class="result-grid">
+        <div class="headline">
+          <div class="stat big"><div class="label">wpm</div><div class="value" id="r-wpm">0</div></div>
+          <div class="stat big"><div class="label">acc</div><div class="value" id="r-acc">0%</div></div>
+          <span id="pb-badge" class="badge" hidden>new personal best</span>
+        </div>
+        <canvas id="chart" aria-label="Words per minute over time"></canvas>
+      </div>
+      <div class="substats">
+        <div class="stat"><div class="label">test</div><div class="value small" id="r-type">30s</div></div>
+        <div class="stat"><div class="label">raw</div><div class="value small" id="r-raw">0</div></div>
+        <div class="stat"><div class="label">consistency</div><div class="value small" id="r-cons">0%</div></div>
+        <div class="stat"><div class="label">words ✓ / ✗</div><div class="value small" id="r-words">0 / 0</div></div>
+        <button id="restart" class="restart">↻ next test</button>
+      </div>
+      <p class="legend"><span class="swatch line"></span> net wpm <span class="swatch dot"></span> raw per second</p>
+    </section>
+
+    <section class="bests" aria-label="Personal bests">
+      <div><span class="label">15s</span> <b id="best-15">–</b></div>
+      <div><span class="label">30s</span> <b id="best-30">–</b></div>
+      <div><span class="label">60s</span> <b id="best-60">–</b></div>
+      <div><span class="label">120s</span> <b id="best-120">–</b></div>
+    </section>
+
+    <section id="history" hidden>
+      <div class="history-head">
+        <h2>recent tests</h2>
+        <button id="clear-history" class="link">clear</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>wpm</th><th>acc</th><th>raw</th><th>time</th><th>mode</th><th>date</th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>no tracking · works offline · results stay in your browser</span>
+    <a href="https://github.com/Tendo505/typeflow">github</a>
+  </footer>
+</body>
+</html>
