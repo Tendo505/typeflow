@@ -8,6 +8,10 @@ A fast, minimal typing speed test that runs entirely in the browser. It shows li
 
 **▶ Live demo: https://tendo505.github.io/typeflow/**
 
+<p align="center">
+  <img src="docs/screenshot.png" width="760" alt="typeflow: a 30-second typing test with live feedback">
+</p>
+
 ## Features
 
 - **Live feedback.** Per-letter highlighting, a smooth caret, and a running WPM counter.
