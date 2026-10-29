@@ -9,7 +9,9 @@ A fast, minimal typing speed test that runs entirely in the browser. It shows li
 **▶ Live demo: https://tendo505.github.io/typeflow/**
 
 <p align="center">
-  <img src="docs/screenshot.png" width="760" alt="typeflow: a 30-second typing test with live feedback">
+  <img src="docs/screenshots/0-start.png" width="49%" alt="Ready to type" title="Ready to type">
+  <img src="docs/screenshots/1-typing.png" width="49%" alt="Live WPM while typing" title="Live WPM while typing">
+  <img src="docs/screenshots/2-results.png" width="49%" alt="Results, chart and history" title="Results, chart and history">
 </p>
 
 ## Features
